@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RequirementX</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+            ✦ RequirementX
+        </div>
+
+        <div class="gemini">
+            Powered by Google Gemini
+        </div>
+
+    </header>
+
+
+    <!-- Main -->
+
+    <main>
+
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <div class="badge">
+                ✨ AI Requirement Intelligence
+            </div>
+
+            <h1>
+                Discover what your
+                <span>requirements are missing.</span>
+            </h1>
+
+            <p>
+                Analyze project requirements and uncover
+                hidden requirements, edge cases,
+                security concerns and missing features.
+            </p>
+
+        </section>
+
+
+        <!-- Input -->
+
+        <section class="input-card">
+
+            <div class="input-header">
+
+                <div>
+
+                    <h2>
+                        Project / Problem Statement
+                    </h2>
+
+                    <p>
+                        Paste your requirement below.
+                    </p>
+
+                </div>
+
+                <span id="characterCount">
+                    0 characters
+                </span>
+
+            </div>
+
+
+            <!-- Sample buttons -->
+
+            <div class="samples">
+
+                <button
+                    onclick="loadSample('education')"
+                    class="sample-btn"
+                >
+                    🎓 Education
+                </button>
+
+                <button
+                    onclick="loadSample('healthcare')"
+                    class="sample-btn"
+                >
+                    🏥 Healthcare
+                </button>
+
+                <button
+                    onclick="loadSample('cyber')"
+                    class="sample-btn"
+                >
+                    🔐 Cybersecurity
+                </button>
+
+            </div>
+
+
+            <textarea
+                id="problemText"
+                maxlength="10000"
+                placeholder="Paste your project or problem statement here..."
+            ></textarea>
+
+
+            <div class="button-row">
+
+                <button
+                    id="analyzeButton"
+                    onclick="analyzeRequirement()"
+                >
+                    ✨ Analyze with Gemini
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading -->
+
+        <section
+            id="loading"
+            class="loading hidden"
+        >
+
+            <div class="spinner"></div>
+
+            <p>
+                Gemini is analyzing your requirement...
+            </p>
+
+        </section>
+
+
+        <!-- Error -->
+
+        <div
+            id="errorMessage"
+            class="error hidden"
+        ></div>
+
+
+        <!-- Results -->
+
+        <section
+            id="results"
+            class="hidden"
+        >
+
+            <!-- Score -->
+
+            <div class="score-card">
+
+                <div>
+
+                    <div class="small-title">
+                        PROJECT READINESS
+                    </div>
+
+                    <h2>
+                        Requirement Analysis
+                    </h2>
+
+                </div>
+
+
+                <div class="score">
+
+                    <span id="scoreValue">
+                        0
+                    </span>
+
+                    <small>/100</small>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-grid">
+
+
+                <!-- Explicit -->
+
+                <div class="result-card">
+
+                    <div class="card-heading">
+
+                        <span class="icon green">
+                            ✓
+                        </span>
+
+                        <h3>
+                            Explicit Requirements
+                        </h3>
+
+                    </div>
+
+                    <ul id="explicitRequirements"></ul>
+
+                </div>
+
+
+                <!-- Hidden -->
+
+                <div class="result-card">
+
+                    <div class="card-heading">
+
+                        <span class="icon yellow">
+                            !
+                        </span>
+
+                        <h3>
+                            Hidden Requirements
+                        </h3>
+
+                    </div>
+
+                    <ul id="hiddenRequirements"></ul>
+
+                </div>
+
+
+                <!-- Edge cases -->
+
+                <div class="result-card">
+
+                    <div class="card-heading">
+
+                        <span class="icon purple">
+                            ◆
+                        </span>
+
+                        <h3>
+                            Edge Cases
+                        </h3>
+
+                    </div>
+
+                    <ul id="edgeCases"></ul>
+
+                </div>
+
+
+                <!-- Security -->
+
+                <div class="result-card">
+
+                    <div class="card-heading">
+
+                        <span class="icon red">
+                            🔐
+                        </span>
+
+                        <h3>
+                            Security Concerns
+                        </h3>
+
+                    </div>
+
+                    <ul id="securityConcerns"></ul>
+
+                </div>
+
+
+                <!-- Suggestions -->
+
+                <div class="result-card">
+
+                    <div class="card-heading">
+
+                        <span class="icon blue">
+                            +
+                        </span>
+
+                        <h3>
+                            Suggested Features
+                        </h3>
+
+                    </div>
+
+                    <ul id="suggestedFeatures"></ul>
+
+                </div>
+
+
+                <!-- Overall -->
+
+                <div class="result-card full">
+
+                    <div class="card-heading">
+
+                        <span class="icon cyan">
+                            ✦
+                        </span>
+
+                        <h3>
+                            Overall Analysis
+                        </h3>
+
+                    </div>
+
+                    <p
+                        id="overallAnalysis"
+                        class="analysis"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        RequirementX • Gemini-powered requirement intelligence
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
